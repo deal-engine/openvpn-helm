@@ -10,7 +10,7 @@ metadata:
 data:
   setup-certs.sh: |-
     #!/bin/bash
-    EASY_RSA_LOC="/etc/openvpn/certs"
+    EASY_RSA_LOC="/etc/openvpn"
     cd $EASY_RSA_LOC
     SERVER_CERT="${EASY_RSA_LOC}/pki/issued/server.crt"
     if [ -e "$SERVER_CERT" ]
@@ -168,12 +168,12 @@ data:
       server {{ .Values.openvpn.OVPN_NETWORK }} {{ .Values.openvpn.OVPN_SUBNET }}
       verb 3
 {{ if .Values.openvpn.useCrl }}
-      crl-verify /etc/openvpn/certs/crl.pem
+      crl-verify /etc/openvpn/crl.pem
 {{ end }}
-      key /etc/openvpn/certs/pki/private/server.key
-      ca /etc/openvpn/certs/pki/ca.crt
-      cert /etc/openvpn/certs/pki/issued/server.crt
-      dh /etc/openvpn/certs/pki/dh.pem
+      key /etc/openvpn/pki/private/server.key
+      ca /etc/openvpn/pki/ca.crt
+      cert /etc/openvpn/pki/issued/server.crt
+      dh /etc/openvpn/pki/dh.pem
 {{ if .Values.openvpn.taKey }}
       tls-auth /etc/openvpn/certs/pki/ta.key 0
 {{ end }}
