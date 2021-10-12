@@ -87,11 +87,10 @@ data:
       key-direction 1
       {{- end }}
       EOF
-      cat pki/$1.ovpn
 
   revokeClientCert.sh: |-
       #!/bin/bash
-      EASY_RSA_LOC="/etc/openvpn/certs"
+      EASY_RSA_LOC="/etc/openvpn"
       cd $EASY_RSA_LOC
       ./easyrsa revoke $1
       ./easyrsa gen-crl
@@ -175,7 +174,7 @@ data:
       cert /etc/openvpn/pki/issued/server.crt
       dh /etc/openvpn/pki/dh.pem
 {{ if .Values.openvpn.taKey }}
-      tls-auth /etc/openvpn/certs/pki/ta.key 0
+      tls-auth /etc/openvpn/pki/ta.key 0
 {{ end }}
 
 {{ if .Values.openvpn.cipher }}

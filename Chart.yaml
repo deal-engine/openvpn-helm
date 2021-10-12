@@ -17,6 +17,6 @@ keywords:
 home: https://openvpn.net/index.php/open-source.html
 sources:
 - https://github.com/jfelten/helm-charts
-- https://github.com/jfelten/openvpn-docker
+- https://github.com/kylemanna/openvpn
 - https://github.com/kubernetes/charts/tree/master/stable/openvpn
 - https://github.com/helm/charts/blob/master/stable/openvpn/Chart.yaml
